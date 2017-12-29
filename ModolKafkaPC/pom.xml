@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.YunTu</groupId>
+  <artifactId>ModolKafkaPC</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>ModolKafkaPC</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- kafka -->
+    <dependency>
+             <groupId>org.apache.kafka</groupId>
+             <artifactId>kafka-clients</artifactId>
+             <version>0.11.0.0</version>
+    </dependency>
+    
+    
+    <!-- hdfs 及必需jdk.tools-->
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-common</artifactId>
+        <version>2.6.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-hdfs</artifactId>
+        <version>2.6.0</version>
+    </dependency>
+    <!-- <dependency>
+    	<groupId>jdk.tools</groupId>
+    	<artifactId>jdk.tools</artifactId>
+    	<version>1.6</version>
+    	<scope>system</scope>
+    	<systemPath>D:\Java\jdk1.8.0_151/lib/tools.jar</systemPath>
+    </dependency> -->
+    
+<!-- storm-hdfs
+	
+    <dependency>
+        <groupId>org.apache.storm</groupId>
+        <artifactId>storm-hdfs</artifactId>
+        <version>0.9.4</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-hdfs</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    --> 
+    
+  </dependencies>
+</project>

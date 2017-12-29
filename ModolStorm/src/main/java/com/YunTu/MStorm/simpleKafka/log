@@ -1,0 +1,18 @@
+storm 框架 与kafka的连接
+	storm提供了与kafka连接的的spout，
+	同时还提供了从Kafka到storm的格式转换scheme，不转换可以用StringScheme
+	转换可以仿StringScheme写自定义Sancheme，或者在bolt拓扑中去实现
+	
+非常不适合有顺序的业务：一边流式向多个分区的kafka中打数据，
+				一边流式的用多线程从kafak中拉取数据
+				数据流进kafka分多个区，变成三组序列，但是在打入过程当中被多线程不断的拉取，数据顺序又乱了
+				
+没有做跟踪机制，会不断重打
+
+KafkaSpout输出格式StringScheme输出标识是"str"，可以自定义scheme，设置自定义输出标识
+
+KafkaBolt输入格式的标识是"message"，拓扑上一级必须要输出此标识的字段
+
+storm的Topology逻辑，也就是主函数逻辑，竟然不能放在Junit中测试，会无错暂停。？？？具体原因未知
+
+KafkaBolt的上一级bolt必需是一个且"message"标识

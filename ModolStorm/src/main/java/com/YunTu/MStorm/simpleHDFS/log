@@ -1,0 +1,17 @@
+StringScaner,暂时没找到其接收的标记字符是什么，但hdfsbolt也没有报错
+
+不知道字段标识，只能有shuffleGroup
+
+找不到Hadoop_home,
+	System.setProperty("hadoop.home.dir", "F:\\hadoop-2.6.0-cdh5.5.0");
+
+SLF4J: Detected both log4j-over-slf4j.jar AND slf4j-log4j12.jar on the class path, preempting StackOverflowError. 
+SLF4J: See also http://www.slf4j.org/codes.html#log4jDelegationLoop for more details.
+	删了slf4j-log4j12.jar
+Error preparing HdfsBolt: Permission denied: user=84031, access=WRITE, inode="/ShangYue":root:supergroup:drwxr-xr-x
+	System.setProperty("HADOOP_USER_NAME", "root");
+	
+	kafka如果send速度过快，顺序会大乱。应该是个多线程
+	向hdfs上写，每多少条写入，剩下没写进去的怎么办了？？？
+	
+	
