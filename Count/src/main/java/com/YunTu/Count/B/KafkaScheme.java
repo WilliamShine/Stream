@@ -1,21 +1,24 @@
-package com.YunTu.uvCount.B;
+package com.YunTu.Count.B;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-import backtype.storm.spout.Scheme;
-import backtype.storm.tuple.Fields;
+import org.apache.storm.spout.Scheme;
+import org.apache.storm.tuple.Fields;
 
 public class KafkaScheme implements Scheme {
 	public static final String STRING_SCHEME_KEY = "myscheme";
 	
-	public List<Object> deserialize(byte[] bytes) {
+	public List<Object> deserialize(ByteBuffer buffer) {
 		List<Object> list = new ArrayList<Object>();//和这个很关键
 		try {
-			list.add(new String(bytes, "UTF-8"));
-			list.add(new String(bytes, "GBK"));
-		} catch (UnsupportedEncodingException e) {
+			list.add(Charset.forName("UTF-8").newDecoder().decode(buffer.asReadOnlyBuffer()).toString());
+			list.add(Charset.forName("GBK").newDecoder().decode(buffer.asReadOnlyBuffer()).toString());
+		} catch (CharacterCodingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return list;
@@ -25,5 +28,6 @@ public class KafkaScheme implements Scheme {
 		
 		return new Fields("myscheme","message");//这个很关键
 	}
+
 
 }

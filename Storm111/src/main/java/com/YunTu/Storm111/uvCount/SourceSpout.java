@@ -35,7 +35,7 @@ public class SourceSpout extends BaseRichSpout {
     	 this.collector=collector;
 		try {
 			 br = new BufferedReader(new
-			 FileReader("/home/shine/t_dataab"));//C:\\Users\\84031\\Documents\\t_dataab
+			 FileReader("C:\\Users\\84031\\Documents\\t_dataab"));//C:\\Users\\84031\\Documents\\t_dataab
 		} catch (FileNotFoundException e) {///home/shine/t_dataab
 			e.printStackTrace();
 		} 

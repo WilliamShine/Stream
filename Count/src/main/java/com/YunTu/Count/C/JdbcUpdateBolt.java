@@ -1,11 +1,10 @@
-package com.YunTu.uvCount.C;
+package com.YunTu.Count.C;
 
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.storm.jdbc.bolt.AbstractJdbcBolt;
 import org.apache.storm.jdbc.common.Column;
 import org.apache.storm.jdbc.common.ConnectionProvider;
-import org.apache.storm.jdbc.common.JdbcClient;
 import org.apache.storm.jdbc.common.Util;
 import org.apache.storm.jdbc.mapper.JdbcMapper;
 import org.apache.storm.task.OutputCollector;
@@ -26,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Exchanger;
 
 public class JdbcUpdateBolt extends AbstractJdbcBolt{
 	
@@ -197,4 +195,9 @@ public class JdbcUpdateBolt extends AbstractJdbcBolt{
             }
         }
     }
+
+	@Override
+	protected void process(Tuple tuple) {
+		
+	}
 }

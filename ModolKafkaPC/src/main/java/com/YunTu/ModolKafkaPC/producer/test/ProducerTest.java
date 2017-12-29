@@ -9,7 +9,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 public class ProducerTest {
 
     public static void main(String[] args) {
-        Properties props = new Properties();//47.100.9.7,47.100.9.241,47.100.6.154
+        Properties props = new Properties();
         props.put("bootstrap.servers", "47.100.9.7:9092");
         props.put("acks", "all");
         props.put("retries", 0);

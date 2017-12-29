@@ -39,10 +39,10 @@ public class UVTopology {
        conf.put(Config. TOPOLOGY_EXECUTOR_SEND_BUFFER_SIZE , 16384);  
        //conf.put(Config.TOPOLOGY_DEBUG, true);
        
-      /* LocalCluster cluster = new LocalCluster();  
-       cluster.submitTopology(UVTopology. class .getSimpleName(), conf , builder .createTopology()); */
+       LocalCluster cluster = new LocalCluster();  
+       cluster.submitTopology(UVTopology. class .getSimpleName(), conf , builder .createTopology()); 
        
-       try {
+       /*try {
 		StormSubmitter.submitTopology(UVTopology. class .getSimpleName(), conf, builder.createTopology());
 	} catch (AlreadyAliveException e) {
 		e.printStackTrace();
@@ -50,7 +50,7 @@ public class UVTopology {
 		e.printStackTrace();
 	} catch (AuthorizationException e) {
 		e.printStackTrace();
-	}
+	}*/
        
 	}
 }

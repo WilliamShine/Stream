@@ -1,4 +1,4 @@
-package com.YunTu.VCount;
+package com.YunTu.Count;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import org.junit.Test;
 
-import com.YunTu.uvCount.C.MysqlConnectionProvider;
+import com.YunTu.Count.C.MysqlConnectionProvider;
 
 public class SqlTest {
 

@@ -1,4 +1,4 @@
-package com.YunTu.uvCount.C;
+package com.YunTu.Count.C;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,6 @@ import java.sql.Statement;
 import org.apache.storm.jdbc.common.ConnectionProvider;
 import org.junit.Test;
 
-import scala.util.automata.NondetWordAutom;
 
 
 /**
@@ -24,7 +23,7 @@ import scala.util.automata.NondetWordAutom;
 public class MysqlConnectionProvider implements ConnectionProvider {
 
     private static String driver = "com.mysql.jdbc.driver";
-    private static String url = "jdbc:mysql://106.14.248.228:23306/data_warehouse";
+    private static String url = "jdbc:mysql://47.100.9.7:3306/data_warehouse";
     private static String user = "weiwei.wu";
     private static String password = "Miweiwei20170711@";
     
@@ -63,9 +62,9 @@ public class MysqlConnectionProvider implements ConnectionProvider {
 		Connection con = new MysqlConnectionProvider().getConnection();
 		try {
 			Statement stat = con.createStatement();
-			ResultSet result = stat.executeQuery("select * from dw_ml_users");
+			ResultSet result = stat.executeQuery("select * from DTstorm_result");
 			while (result.next()) {
-				int id = result.getInt(1);
+				String id = result.getString(1);
 				String name = result.getString(2);
 				System.out.println(id + "--" + name);
 			}

@@ -1,4 +1,4 @@
-package com.YunTu.uvCount.C;
+package com.YunTu.Count.C;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.CharacterCodingException;
@@ -18,7 +18,6 @@ public class KafkaScheme implements Scheme {
 		return new Fields("myscheme","message");//这个很关键
 	}
 
-	@Override
 	public List<Object> deserialize(ByteBuffer buffer) {
 		List<Object> list = new ArrayList<Object>();//和这个很关键
 		try {

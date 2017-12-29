@@ -46,12 +46,12 @@ public class UVTopology {
        conf.put(Config. TOPOLOGY_TRANSFER_BUFFER_SIZE , 32);  
        conf.put(Config. TOPOLOGY_EXECUTOR_RECEIVE_BUFFER_SIZE , 16384);  
        conf.put(Config. TOPOLOGY_EXECUTOR_SEND_BUFFER_SIZE , 16384);  
-       //conf.put(Config.TOPOLOGY_DEBUG, true);
+       conf.put(Config.TOPOLOGY_DEBUG, true);
        
-      /* LocalCluster cluster = new LocalCluster();  
-       cluster.submitTopology(UVTopology. class .getSimpleName(), conf , builder .createTopology()); */
+       LocalCluster cluster = new LocalCluster();  
+       cluster.submitTopology(UVTopology. class .getSimpleName(), conf , builder .createTopology()); 
        
-       try {
+       /*try {
 		StormSubmitter.submitTopology(UVTopology. class .getSimpleName(), conf, builder.createTopology());
 	} catch (AlreadyAliveException e) {
 		e.printStackTrace();
@@ -59,7 +59,7 @@ public class UVTopology {
 		e.printStackTrace();
 	} catch (AuthorizationException e) {
 		e.printStackTrace();
-	}
+	}*/
        
 	}
 	
@@ -67,7 +67,7 @@ public class UVTopology {
 	 * kafkaspout产生方法，本身相当于一个kafka的消费者
 	 */
 	private static KafkaSpout kafakaSpoutUtil() {
-		String zkConnString="47.100.9.7:2181";
+		String zkConnString="101.201.68.72:2181";
 		BrokerHosts hosts = new ZkHosts(zkConnString);//这里的另一个重构方法，zookeeper中kafka的brokers的位置在哪个znode位置下，就需设置，（brokers可以指定位置的后续）
 		SpoutConfig spoutConfig = new SpoutConfig(hosts, "sytest", "/shine", UUID.randomUUID().toString());//zkroot随便设置
 		spoutConfig.scheme = new SchemeAsMultiScheme(new StringScheme());//设置Scheme()！！！！从kafka到storm间的数据转化，可以自定义。可以仿StringScheme()自定义这个转换过程

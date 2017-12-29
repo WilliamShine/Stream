@@ -10,11 +10,13 @@ import backtype.storm.LocalCluster;
 import backtype.storm.spout.SchemeAsMultiScheme;
 import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.tuple.Fields;
+import backtype.storm.tuple.Values;
 import storm.kafka.BrokerHosts;
 import storm.kafka.KafkaSpout;
 import storm.kafka.SpoutConfig;
 import storm.kafka.StringScheme;
 import storm.kafka.ZkHosts;
+import storm.trident.testing.FixedBatchSpout;
 
 
 public class UVTopology {
@@ -25,7 +27,8 @@ public class UVTopology {
     public static final String UVSUMBOLT_ID = UVSumBolt.class .getSimpleName();  
     
 	public static void main(String[] args) {
-		TopologyBuilder builder = new TopologyBuilder();  
+		
+		TopologyBuilder builder = new TopologyBuilder(); 
         builder.setSpout( "kafka" , kafakaSpoutUtil(), 1); 
         //builder.setBolt("test", new Tsetbolt()).shuffleGrouping("kafka");
         // 切分格式化数据源： 格式： 2017_05_13686666420349405689

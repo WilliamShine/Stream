@@ -22,7 +22,7 @@ public class Delete_API_Sync_Usage implements Watcher {
     private static ZooKeeper zk;
 
     public static void main(String[] args) throws Exception {
-        String path = "/kafka";
+        String path = "/zookeeper";
         zk = new ZooKeeper("47.100.9.7:2181", 5000,
                 new Delete_API_Sync_Usage());
         connectedSemaphore.await();
@@ -52,7 +52,7 @@ public class Delete_API_Sync_Usage implements Watcher {
         zk.delete(path, -1);        
         System.out.println("success delete znode: " + path);*/
 
-        Thread.sleep(Integer.MAX_VALUE);
+        //Thread.sleep(Integer.MAX_VALUE);
         //zk.close();
     }
 

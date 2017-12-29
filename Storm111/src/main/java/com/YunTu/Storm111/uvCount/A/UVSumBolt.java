@@ -32,17 +32,14 @@ public class UVSumBolt extends BaseRichBolt {
      BufferedWriter bw = null;
 	public void prepare(Map map, TopologyContext context, OutputCollector collector) {
 		this.collector = collector; 
-		try {
+		/*try {
 			bw = new BufferedWriter(new FileWriter("kafkastorm.out"));//这里绝对路径空指针，相对路径找不见
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	public void execute(Tuple tuple) {
-		 pv = 0;  
-         uv = 0;  
-           
          String dateSid = tuple.getStringByField("cid");  
          Integer count = tuple.getIntegerByField("count");  
          counts.put(dateSid, count);// 汇总每个id  对应的深度,这里可通过map或者mysql作为去重的持久化操作  
@@ -53,12 +50,12 @@ public class UVSumBolt extends BaseRichBolt {
 		} 
          //保存到HBase或者数据库中  
          System.out.println("pv数为"+pv+",uv数为"+uv);  
-         try {
+        /* try {
  			bw.write("pv数为"+pv+",uv数为"+uv);
  			bw.flush();
  		} catch (IOException e1) {
  			e1.printStackTrace();
- 		}
+ 		}*/
 	}
 
 	public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {

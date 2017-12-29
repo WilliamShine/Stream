@@ -43,7 +43,7 @@ public class Tabletest extends JDBCClient{
             JSONArray json = JSONArray.fromObject(jsonlist);
             str =json.toString();
         } catch (Exception e) {  
-            e.printStackTrace();  
+            e.printStackTrace();
         }  
         this.close();  
         return str;  

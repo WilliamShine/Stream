@@ -1,6 +1,10 @@
 package com.YunTu.BigTable;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,6 +57,25 @@ public class JsonDemo {
 		JSONObject jsonObj = JSONObject.fromObject(map);
 		System.out.println(jsonObj.toString());
 		
+	}
+	
+	@Test
+	public void test2() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			//截取成时间
+			sdf.parse("2017-11-27 10:49:01");//Mon Nov 27 00:00:00 CST 2017
+			//转型yyyy-mm-dd字符
+			sdf.format(sdf.parse("2017-11-27 10:49:01"));//2017-11-27
+			
+			Calendar calendar = Calendar.getInstance();
+            calendar.setTime(sdf.parse("2017-11-27 10:49:01"));
+			
+			System.out.println(calendar.get(Calendar.YEAR));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

@@ -32,11 +32,11 @@ public class UVSumBolt extends BaseRichBolt {
     BufferedWriter bw = null;
 	public void prepare(Map map, TopologyContext context, OutputCollector collector) {
 		this.collector = collector;  
-		try {
+		/*try {
 			bw = new BufferedWriter(new FileWriter("/home/shine/result"));
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	public void execute(Tuple tuple) {
@@ -53,12 +53,12 @@ public class UVSumBolt extends BaseRichBolt {
 		} 
          //保存到HBase或者数据库中  
          System.out.println("pv数为"+pv+",uv数为"+uv); 
-         try {
+        /* try {
 			bw.write("pv数为"+pv+",uv数为"+uv);
 			bw.flush();
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		}
+		}*/
 
 	}
 
